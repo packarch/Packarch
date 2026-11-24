@@ -739,7 +739,11 @@ retire `/etc/xdg/calamares` du système installé.
   déjà). **Seule la version chiffrée est sur l'ISO** : pour changer de clé,
   remplacer `archiso/airootfs/usr/share/github-setup/myEncryptedFile`
   (archive `.tar.gz` chiffrée avec `cryptyrust -e`, extraite dans le dossier
-  personnel).
+  personnel). Depuis le 2026-11-24, l'archive est au format Arsenic V2 de
+  cryptyrust 3.0.0, incompatible avec le V1 de cryptyrust 2.x : elle doit
+  être chiffrée avec la version de cryptyrust du dépôt [packarch] (sinon
+  « Déchiffrement impossible » au premier login). Son `known_hosts` contient
+  les clés d'hôte de `github.com` et de `aur.archlinux.org`.
 - `packages_online.conf` (options d'origine) fait un `pacman -Syu` après l'installation
   des paquets : **le système installé est à jour**.
 
