@@ -239,7 +239,7 @@ CP437. `archiso_sys.cfg` démarrait par défaut `arch64`, entrée inexistante :
 | Affichage et connexion | `xorg-server`, `xf86-input-libinput`, `sddm`, `packarch-sddm-theme` (LightDM avant le 2026-11-19) |
 | Remplaçants des outils KDE | `network-manager-applet`, `blueman`, `pavucontrol`, `polkit-gnome`, `gvfs`, `gvfs-mtp`, `gvfs-smb`, `file-roller`, `xarchiver`, `ristretto`, `catfish` (recherche de fichiers) |
 | Applications | `geany` (seul éditeur graphique, avec `nano` en console), `meld` (comparaison de fichiers), `nounours-player` (seul lecteur vidéo, avec `mpv` en dépendance ; SMPlayer n'est plus installé, il reste proposé dans Packarch Installer), `htop` (btop est proposé dans Packarch Installer), `yay` |
-| Applications de l'auteur (dépôt Packarch) | `cryptyrust` (chiffrement de fichiers), `liloucalc` (calculatrice scientifique), `nounours-player` (lecteur multimédia), `packarch-rmatrix` (effet « Matrix » en console) |
+| Applications de l'auteur (dépôt Packarch) | `cryptyrust` (chiffrement de fichiers ; aussi sur l'AUR depuis le 2026-11-25, le dépôt Packarch le construit avec le PKGBUILD de l'AUR : `aur/cryptyrust` de `myrepo-pkgs`), `liloucalc` (calculatrice scientifique), `nounours-player` (lecteur multimédia), `packarch-rmatrix` (effet « Matrix » en console) |
 | Démarrage | `cachyos-grub-theme` |
 
 `vim` n'est plus installé : `cachyos-zsh-config`, qui l'exigeait sans s'en
@@ -742,7 +742,8 @@ retire `/etc/xdg/calamares` du système installé.
   personnel). Depuis le 2026-11-24, l'archive est au format Arsenic V2 de
   cryptyrust 3.0.0, incompatible avec le V1 de cryptyrust 2.x : elle doit
   être chiffrée avec la version de cryptyrust du dépôt [packarch] (sinon
-  « Déchiffrement impossible » au premier login). Son `known_hosts` contient
+  « Déchiffrement impossible » au premier login ; cryptyrust 3.1.0, du
+  2026-11-25, garde le format V2). Son `known_hosts` contient
   les clés d'hôte de `github.com` et de `aur.archlinux.org`.
 - `packages_online.conf` (options d'origine) fait un `pacman -Syu` après l'installation
   des paquets : **le système installé est à jour**.
