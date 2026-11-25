@@ -760,8 +760,8 @@ retire `/etc/xdg/calamares` du système installé.
   personnel). Depuis le 2026-11-24, l'archive est au format Arsenic V2 de
   cryptyrust 3.0.0, incompatible avec le V1 de cryptyrust 2.x : elle doit
   être chiffrée avec la version de cryptyrust du dépôt [packarch] (sinon
-  « Déchiffrement impossible » au premier login ; cryptyrust 3.1.0, du
-  2026-11-25, garde le format V2). Son `known_hosts` contient
+  « Déchiffrement impossible » au premier login ; cryptyrust 3.1.0 et 3.2.0, du
+  2026-11-25, gardent le format V2 : l'archive a été déchiffrée avec la 3.2.0). Son `known_hosts` contient
   les clés d'hôte de `github.com` et de `aur.archlinux.org`. Depuis le
   2026-11-25, l'archive contient aussi
   `.config/packarch-admin/tailscale-oauth` (droits 600) : le secret du client
