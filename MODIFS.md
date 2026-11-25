@@ -744,7 +744,14 @@ retire `/etc/xdg/calamares` du système installé.
   être chiffrée avec la version de cryptyrust du dépôt [packarch] (sinon
   « Déchiffrement impossible » au premier login ; cryptyrust 3.1.0, du
   2026-11-25, garde le format V2). Son `known_hosts` contient
-  les clés d'hôte de `github.com` et de `aur.archlinux.org`.
+  les clés d'hôte de `github.com` et de `aur.archlinux.org`. Depuis le
+  2026-11-25, l'archive contient aussi
+  `.config/packarch-admin/tailscale-oauth` (droits 600) : le secret du client
+  OAuth Tailscale avec lequel `packarch-admin` crée les clés de connexion des
+  ordinateurs dépannés (dépôt packarch-depannage). Son `gitconfig.sh`
+  commence par installer `packarch-admin` (`sudo -n pacman -Sy --needed`,
+  dépôt [packarch]) s'il n'y est pas ; un échec (pas de réseau) est noté
+  dans le journal et n'arrête pas la suite.
 - `packages_online.conf` (options d'origine) fait un `pacman -Syu` après l'installation
   des paquets : **le système installé est à jour**.
 
