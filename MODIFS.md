@@ -483,8 +483,26 @@ avec Tailscale SSH et affiche le lien de connexion à transmettre à la
 personne qui dépanne. Elle l'ouvre avec son compte Tailscale et se connecte
 en root (`ssh root@packarch-<nom d'hôte>`). Arrêt automatique (minuterie
 systemd), « +1 h », « Arrêter maintenant » ; rien ne tourne en dehors d'une
-session, aucun secret sur l'ordinateur. Le réseau Tailscale de la personne
+session. Le réseau Tailscale de la personne
 qui dépanne doit isoler `tag:depannage` (README du dépôt).
+
+Depuis la version 0.4 (2026-11-25), le paquet est en C++/Qt 6 (`qt6-base`) au
+lieu de Rust, et ne contient plus que le côté dépanné :
+
+- le lien n'est à envoyer que la première fois : pendant un dépannage,
+  `packarch-admin` dépose une clé de connexion Tailscale propre à l'ordinateur
+  (`/var/lib/packarch-depannage/authkey`, root seul, 90 jours, renouvelée à
+  chaque dépannage), et les sessions suivantes rejoignent le réseau toutes
+  seules ; sans clé, ou si elle ne fonctionne plus, le lien reste demandé ;
+- sans bureau (console, tty) ou si la fenêtre ne s'ouvre pas,
+  `packarch-depannage` passe en mode texte (mêmes étapes, tchat compris) ; la
+  fenêtre est un programme à part (`/usr/lib/packarch-depannage`), les
+  commandes n'utilisent que Qt Core ;
+- le programme de la personne qui dépanne, **`packarch-admin`** (même dépôt
+  et même PKGBUILD : ordinateurs à dépanner, terminaux intégrés, tchat, écran
+  de la personne avec contrôle, infos de l'ordinateur), **n'est ni sur l'ISO
+  ni dans les listes de l'installateur** : il est installé par l'archive
+  personnelle de `github-setup` (voir plus bas).
 
 ## 5. Sélecteur de thèmes
 
