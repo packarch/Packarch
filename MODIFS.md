@@ -307,6 +307,14 @@ ensuite, SDDM retient la dernière. `removeun-online` ne supprime plus
 `/etc/sddm.conf`, où Calamares (`displaymanager`) écrit la connexion
 automatique.
 
+`dmcheck` teste chaque gestionnaire de connexion avec `pacman -Qq` (paquet
+exact) et non plus `pacman -Qs`, qui cherche aussi dans les descriptions
+(depuis le 2026-11-26) : `lightdm` y trouvait `packarch-system-settings`
+(« LightDM » dans sa description) et le lien `display-manager.service` partait
+vers `lightdm.service`, absent, donc pas d'écran de connexion après
+l'installation ; `ly` y trouvait une trentaine de paquets et créait un lien
+`ly@tty2.service` mort.
+
 **Supprimés de `airootfs`** (réglages KDE) : `etc/plasmalogin.conf`,
 `etc/plasmalogin.conf.d/`, le hook `90-cachyos-live-kwin-keyboard.hook`, et dans
 `etc/skel/.config/` : `kded5rc`, `kscreenlockerrc`, `kwalletrc`,
