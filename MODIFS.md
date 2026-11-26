@@ -315,6 +315,13 @@ vers `lightdm.service`, absent, donc pas d'écran de connexion après
 l'installation ; `ly` y trouvait une trentaine de paquets et créait un lien
 `ly@tty2.service` mort.
 
+Ce `dmcheck` est celui de l'ISO (`airootfs/usr/local/bin/dmcheck`) : `pacstrap.conf`
+(`postInstallFiles`) le copie dans le système installé et `shellprocess.conf`
+l'exécute, à la place de `/etc/calamares/scripts/dmcheck`, fourni par le paquet
+Calamares et resté en `pacman -Qs`. Jusqu'au 2026-11-26, c'est ce dernier que
+l'installateur lançait : la correction ci-dessus, faite dans le seul fichier de
+l'ISO, était sans effet.
+
 **Supprimés de `airootfs`** (réglages KDE) : `etc/plasmalogin.conf`,
 `etc/plasmalogin.conf.d/`, le hook `90-cachyos-live-kwin-keyboard.hook`, et dans
 `etc/skel/.config/` : `kded5rc`, `kscreenlockerrc`, `kwalletrc`,
